@@ -1,0 +1,40 @@
+page-record-form {
+
+    ion-item {
+        // border-radius: 30px !important;
+        padding-left: 30px !important;
+        font-size: 0.9em;
+        // border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        margin-bottom: 0px !important;
+    }
+
+    .list-md .item-input:last-child, .list-ios > .item-block:last-child,.list-ios > .item-block:first-child {
+        border-bottom: none !important;
+        border-top: none !important;
+    }
+
+
+    .list-md > .item-block:last-child .item-inner, .list-ios > .item-block:last-child .item-inner{
+        border-bottom: 1px solid #dedede;
+    }
+    
+    .done-btn {
+        background: #0064b2;
+        border-radius: 30px !important;
+        border: 1px solid #ffffff;
+        opacity: 1;
+        margin-bottom: 15px !important;
+        margin-top:50px !important;
+       }
+
+       .error {
+        color: rgb(223, 62, 62);
+        font-size: 11px;
+      }
+      .no-border .item-inner{
+          border-bottom:none !important;
+      }
+
+    
+}

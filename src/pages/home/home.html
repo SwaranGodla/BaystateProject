@@ -1,14 +1,48 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<header [title]='title'></header>
+<button ion-button class="add-button" (click)="addNew()">Add Record</button>
+<ion-content style="background: #e2e2e2">
+  <!-- <button ion-button (click)="clean()">Clean storage</button> -->
+  <ion-card *ngFor="let val of data;let i = index">
+    <ion-item>
+      <ion-avatar style="margin-right: 0px" item-start>
+        <ion-icon style="font-size: 30px;" name="md-person"></ion-icon>
+      </ion-avatar>
+      <h2 style="display: inline-block">{{val.name}}</h2>
+      <ion-icon style="font-size: 20px;float: right;" name="md-create" (click)="edit(val,i)"></ion-icon>
+    </ion-item>
+    <ion-card-content>
+      <ion-row>
+        <ion-col class="col-50">
+          <p>Email</p>
+        </ion-col>
+        <ion-col class="col-50">
+          <p>{{val.email}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="col-50">
+          <p>State</p>
+        </ion-col>
+        <ion-col class="col-50">
+          <p>{{val.state}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col class="col-50">
+            <p>City</p>
+          </ion-col>
+          <ion-col class="col-50">
+            <p>{{val.city}}</p>
+          </ion-col>
+        </ion-row>
+      <ion-row>
+        <ion-col class="col-50">
+          <p>Zip Code</p>
+        </ion-col>
+        <ion-col class="col-50">
+          <p>{{val.zip}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

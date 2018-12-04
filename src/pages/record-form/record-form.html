@@ -1,0 +1,96 @@
+<!--
+  Generated template for the RecordFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<header [title]='title'></header>
+
+<ion-content padding>
+  <form novalidate [formGroup]="recordForm" (ngSubmit)="addOrUpdateRecord(record)">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" formControlName="name" [(ngModel)]='record.name'></ion-input>
+      </ion-item>
+
+      <ion-item no-lines *ngIf="(recordForm.get('name').hasError('required') || recordForm.get('name').hasError('pattern') || recordForm.get('name').hasError('minlength')) && recordForm.get('name').touched">
+        <div class="error" *ngIf="recordForm.get('name').hasError('required') && recordForm.get('name').touched">
+          Please enter name
+        </div>
+        <div class="error" *ngIf="recordForm.get('name').hasError('pattern') && recordForm.get('name').touched">
+          Use alphabets only
+        </div>
+        <div class="error" *ngIf="recordForm.get('name').hasError('minlength') && recordForm.get('name').touched">
+          Minimum 3 characters required
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" formControlName="email" [(ngModel)]='record.email'></ion-input>
+      </ion-item>
+
+      <ion-item no-lines *ngIf="(recordForm.get('email').hasError('required')  || recordForm.get('email').hasError('pattern')) && recordForm.get('email').touched">
+        <div class="error" *ngIf="recordForm.get('email').hasError('required') && recordForm.get('email').touched">
+          Please enter email
+        </div>
+        <div class="error" *ngIf="recordForm.get('email').hasError('pattern') && recordForm.get('email').touched">
+          Invalid email address
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>City</ion-label>
+        <ion-input type="text" formControlName="city" [(ngModel)]="record.city"></ion-input>
+      </ion-item>
+
+      <ion-item no-lines *ngIf="(recordForm.get('city').hasError('required') || recordForm.get('city').hasError('pattern'))  && recordForm.get('city').touched">
+
+        <div class="error" *ngIf="recordForm.get('city').hasError('required') && recordForm.get('city').touched">
+          Please enter city
+        </div>
+
+        <div class="error" *ngIf="recordForm.get('city').hasError('pattern') && recordForm.get('city').touched">
+          Use alphabets only
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>State</ion-label>
+        <ion-select formControlName="state" [(ngModel)]="record.state">
+          <ion-option *ngFor="let state of stateOptions" [selected]="record.state">{{state}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item no-lines *ngIf="recordForm.get('state').hasError('required') && recordForm.get('state').touched">
+        <div class="error">
+          Please select the State
+        </div>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label stacked>Zip</ion-label>
+        <ion-input type="text" formControlName="zip" [(ngModel)]="record.zip"></ion-input>
+      </ion-item>
+
+      <ion-item class="no-border" no-lines *ngIf="(recordForm.get('zip').hasError('required') || recordForm.get('zip').hasError('pattern') || recordForm.get('zip').hasError('maxlength')) && recordForm.get('zip').touched">
+
+        <div class="error" *ngIf="recordForm.get('zip').hasError('required') && recordForm.get('zip').touched">
+          Please enter Zip
+        </div>
+
+        <div class="error" *ngIf="recordForm.get('zip').hasError('pattern') && recordForm.get('zip').touched">
+          Use numbers only
+        </div>
+
+        <div class="error" *ngIf="recordForm.get('zip').hasError('maxlength') && recordForm.get('zip').touched">
+          Max 6 digits allowed
+        </div>
+      </ion-item>
+    </ion-list>
+    <button ion-button block class="done-btn" full type="submit" [disabled]="recordForm.invalid" (click)="addOrUpdateRecord()">
+      Submit </button>
+  </form>
+</ion-content>

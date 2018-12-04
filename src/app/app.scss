@@ -14,3 +14,26 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+.platform-ios ion-content .scroll-content {
+  top: 44px;
+}
+
+.platform-android ion-content .scroll-content {
+  top: 57px;
+}
+ion-menu ion-content .scroll-content{
+    top: 0px !important;
+}
+.toolbar-background{
+  background: #0064b2 !important;
+}
+
+.toolbar-title{
+  color: #fff !important;
+}
+
+.bar-button{
+  color: #fff !important;
+}
